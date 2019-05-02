@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import SecondScreen from './components/SecondScreen'
+import AddItem from './components/AddItem'
 import HomeScreen from './components/HomeScreen'
 
 
 const AppNavigator = createStackNavigator(  
   {
   Home: HomeScreen,
-  Details: SecondScreen
+  AddItem: AddItem
 },
 {
   initialRouteName: "Home"

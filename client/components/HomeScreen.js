@@ -1,5 +1,13 @@
-import React, { Component } from 'react'
-import { View, Text, Button } from "react-native";
+import React, { Component } from 'react';  
+import {  
+  View,
+  Text,
+  Button, 
+  TouchableHighlight,
+  StyleSheet,
+  TextInput,
+  AlertIOS
+} from 'react-native';
 
 export class HomeScreen extends Component {
   render() {
@@ -7,8 +15,12 @@ export class HomeScreen extends Component {
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
             <Text>Home Screen</Text>
             <Button
-                title="Go to Details"
-                onPress={() => this.props.navigation.navigate('Details')}
+                title="Adding Items Here"
+                onPress={() => this.props.navigation.navigate('AddItem')}
+            />
+            <Button
+                title="Listing Items Here"
+                onPress={() => this.props.navigation.navigate('AddItem')}
             />
         </View>
     )
