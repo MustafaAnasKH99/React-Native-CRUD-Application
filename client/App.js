@@ -6,7 +6,7 @@ import HomeScreen from './components/HomeScreen'
 
 
 const AppNavigator = createStackNavigator(  
-  {
+{
   Home: HomeScreen,
   AddItem: AddItem
 },
