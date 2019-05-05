@@ -28,7 +28,7 @@ export class AddItem extends Component {
   static navigationOptions = {
     title: 'CREATE ITEMS',
     headerStyle: {
-      backgroundColor: '#1D1D1D'
+      backgroundColor: '#1D1D1D',
     },
     headerTintColor: '#34d1bf',
     headerTitleStyle: {
@@ -66,21 +66,23 @@ export class AddItem extends Component {
 
   render() {
     return (
-        <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', backgroundColor: '#34d1bf' }}>
+      <View style={{backgroundColor: '#EFEFEF'}}>
+        <View style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#1D1D1D' }}>
             <View style={styles.rowContainer}>
                 <TextInput
                     style={styles.inputField}
                     placeholder="TYPE NAME!"
-                    placeholderTextColor = '#3454d1'
+                    placeholderTextColor = '#1D1D1D'
+                    placeholderFontFamily = 'sans-serif-thin'
                     onChangeText={this.handleChange}
                 />
 
                 <TouchableHighlight
-                    style={styles.buttonText}
+                    style={styles.addButtonContainer}
                     underlayColor="white"
                     onPress={() => this.handleSubmit()}
                 >
-                    <Text style={{ color: '#34d1bf', fontSize: 50, paddingLeft: 15}}>+</Text>
+                    <Text style={styles.addButton}>+</Text>
                 </TouchableHighlight>
               </View>
               {/* <Button
@@ -95,10 +97,15 @@ export class AddItem extends Component {
                 title="Home Screen"
                 onPress={() => this.props.navigation.navigate('Home')}
               /> */}
-              <FlatList
-                data={this.state.names}
-                renderItem={({item}) => <Text style={styles.textAded}>{item.name}</Text>}
-              />
+        </View>
+          <View style={styles.textAded}>
+            <FlatList
+              data={this.state.names}
+              renderItem={({item}) =>
+                <Text style={{color: '#EFEFEF', fontSize: 30, fontFamily: 'sans-serif-light', padding: 3}}>{item.name}</Text>
+              }
+            />
+          </View>
         </View>
     )
   }
@@ -117,8 +124,17 @@ const styles = StyleSheet.create({
       fontSize: 30,
       margin: 0,
     },
-    buttonText: {
-      fontSize: 60,
+    addButton: { 
+      color: '#EFEFEF',
+      fontSize: 30,
+      padding: 3, 
+      paddingLeft: 10, 
+      paddingRight: 10, 
+      backgroundColor: '#34d1bf', 
+      marginLeft: 100, 
+      borderRadius: 5 
+    },
+    addButtonContainer: {
       color: '#111',
       padding: 10,
       alignSelf: 'center',
@@ -143,17 +159,17 @@ const styles = StyleSheet.create({
     textAded: {
       fontSize: 30,
       color: '#EFEFEF',
-      width: 600,
       backgroundColor: '#34d1bf',
-      paddingLeft: 30
+      padding: 30,
+      borderTopRightRadius: 30
     },
     rowContainer: {
       flexDirection: 'row',
       backgroundColor: '#EFEFEF',
       width: 420,
       paddingLeft: 30,
-      marginBottom: 20,
-      borderBottomRightRadius: 30
+      borderTopRightRadius: 30,
+      padding: 10,
     }
   });
 
